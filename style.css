@@ -40,6 +40,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Theme Specific Styles
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -983,3 +984,215 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*--------------------------------------------------------------
+# Theme Specific Styles
+--------------------------------------------------------------*/
+
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow: auto;
+  }
+  
+  #main {
+	flex-grow: 1;
+  }
+  
+  #footer {
+	margin-top: 2rem;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+  }
+  
+  .section {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+  }
+  
+  .slider-slide {
+	height: 28rem;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+  }
+  
+  .dark,
+  .navbar-dark--custom {
+	background-color: black;
+	color: white;
+  }
+  
+  .dark {
+	background-color: black;
+	color: white;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+	color: white;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+	color: white;
+  }
+  
+  .social-links {
+	list-style: none;
+	padding-left: 0;
+  }
+  
+  .social-links .fab {
+	width: 1.25rem;
+  }
+  
+  .contact--connect {
+	font-size: 1rem;
+  }
+  
+  .map-container {
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	height: 0;
+  }
+  
+  .map-container iframe {
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+  }
+  
+  .estate_address {
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+  }
+  
+  .estate_info {
+	margin: 1em;
+	font-size: 0.9em;
+	font-weight: normal;
+  }
+  
+  .xh-comment-title {
+	font-size: 1.3em;
+	font-weight: bold;
+  }
+  
+  .xh-comment {
+	font-size: 0.9em;
+	font-weight: normal;
+  }
+  
+  .xh-interested-title {
+	font-size: 1.35em;
+	font-weight: bold;
+	text-align: center;
+  }
+  
+  .xh-interested {
+	font-size: 0.9em;
+	font-weight: normal;
+	text-align: center;
+	padding: 1em;
+  }
+  .service-title {
+	font-size: 2.1em;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
+  }
+  .service-preview {
+	font-size: 0.9em;
+	font-weight: normal;
+	text-align: left;
+	padding-top: 0.9em;
+	color: black;
+	padding-bottom: 0.9em;
+  }
+  
+  .service-preview-title {
+	font-size: 1.65em;
+	font-weight: 500;
+  }
+  
+  .blog-preview {
+	color: black;
+  }
+  
+  .blog-preview:hover {
+	font-weight: bold;
+	text-decoration: none;
+	color: darkgray;
+  }
+  
+  .listing-address {
+	font-size: 1em;
+	color: black;
+	text-align: left;
+  }
+  
+  .listing-description {
+	text-align: left;
+  }
+  
+  .blog-title {
+	font-size: 2em;
+	font-weight: 500;
+	padding-top: 1.5em;
+	text-align: left;
+  }
+  .blog-info {
+	font-size: 1em;
+	font-weight: lighter;
+	padding-top: 0.95em;
+  }
+  
+  .blog-description {
+	font-size: 0.9em;
+	font-weight: normal;
+	padding-top: 1em;
+	padding-bottom: 3em;
+  }
+  
+  .blog-item {
+	padding-left: 15rem;
+	padding-right: 15rem;
+  }
+  
+  .xh-contact {
+	color: inherit;
+  }
+  
+  .xh-contact:hover {
+	color: inherit;
+	font-weight: bold;
+	text-decoration: none;
+  }
+  
+  .listing-preview-item {
+	padding-top: 0.3em;
+  }
+  
+  .nav-link {
+	color: black;
+  }
+  .nav-link:hover {
+	font-weight: bold;
+	color: black;
+  }
+  
+  .btn-dark--custom {
+	color: white;
+	background-color: black;
+  }
+  
+  .btn-dark--custom:hover {
+	color: white;
+	background-color: black;
+	font-weight: 500;
+  }
+  
