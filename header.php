@@ -24,35 +24,45 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'xh-theme' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$xh_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $xh_theme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $xh_theme_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+	<header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-dark--custom">
+          <div class="container">
+            <a class="navbar-brand" href="/">XIANHONG ZHENG INC.</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'xh-theme' ); ?></button>
+			<!-- If te menu (WP admin area) is not set, then the "menu_class" is applied to "container". 
+			In other words, it overwrites the "container_class"-->
+
 			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
+				wp_nav_menu( array(
+					'theme_location' => 'primary',
+					'container' => 'nav',
+					'container_class' => 'collapse navbar-collapse',
+					'menu_class' => 'navbar-nav ml-auto'
+				));
 			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+          
+
+            <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/mylistings.html">My Listings</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact.html">Contact Me</a>
+                </li>
+              </ul>
+            </div>-->
+          </div>
+        </nav>
+      </header>
 
 	<div id="content" class="site-content">
