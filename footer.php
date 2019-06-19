@@ -14,6 +14,33 @@
 
 <?php wp_footer(); ?>
 
+<footer id="footer" class="dark">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-5 ml-auto">
+            <h4>Find me on:</h4>
+            <div class="row">
+            <div class="col-sm-6">
+            <ul class="social-links">
+                <li><i class="fab fa-weixin"></i> Weixin</li>
+                <li><i class="fab fa-facebook-square"></i> <a class="xh-contact" href="https://www.facebook.com/xianhong.zheng.9">Facebook</a></li>
+                <li><i class="fab fa-instagram"></i> Instagram</li>
+            </ul>
+            </div>
+            <div class="col-sm-6">
+            <address class="mb-0">
+                <strong>Email:</strong><br>
+                xianhong.zheng@gmail.com<br>
+                <strong>Telephone:</strong><br>
+                (514) 608-5818
+            </address> 
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</footer>
+
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

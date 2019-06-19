@@ -1164,7 +1164,11 @@ object {
   }
   
   .xh-contact {
-	color: inherit;
+	color:inherit;
+  }
+  
+  .xh-contact:visited {
+	color:inherit;
   }
   
   .xh-contact:hover {
