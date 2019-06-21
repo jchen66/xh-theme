@@ -39,7 +39,7 @@
 	<header id="header">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-dark--custom">
           <div class="container">
-            <a class="navbar-brand" href="/">XIANHONG ZHENG INC.</a>
+            <a class="navbar-brand" href="/"><?php bloginfo('name')?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
