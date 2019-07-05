@@ -3,6 +3,17 @@
     Template Name:  Home Page
 
  */
+// Advanced Custom Fields
+$self_introduction_name = get_field('self_introduction_name');
+$self_description = get_field('self_description');
+$statistic_1_image = get_field('statistic_1_image');
+$statistic_1_description = get_field('statistic_1_description');
+$statistic_2_image = get_field('statistic_2_image');
+$statistic_2_description = get_field('statistic_2_description');
+$statistic_3_image = get_field('statistic_3_image');
+$statistic_3_description = get_field('statistic_3_description');
+
+
 
 get_header(); ?>
 <div id="hero-slider" class="carousel slide" data-ride="carousel" data-interval="5000">
@@ -35,7 +46,8 @@ get_header(); ?>
     <div class="col-sm-8">
         <div class="section" id="home--about">
             <div class="container">
-                <p><strong>Xianhong Claire Zheng</strong> Lorem ipsum dolor sit amet, mea an odio enim instructior. Est vivendum voluptaria ex. Corrumpit democritum pro at, pri odio liber possim ad. Vitae copiosae ex quo, esse tibique sea ea. Ea singulis dignissim his, munere tibique salutatus qui an. Et per habemus percipitur, vix vide dicta in, ius ea simul euripidis. Sed ea paulo disputationi, eam exerci elaboraret consectetuer ea, illud exerci aliquam his te. Cu eos offendit menandri hendrerit, usu in ullum graeco officiis, nam amet oblique mentitum ea.</p>
+                <p> IT SHOULD APPEAR HERE </p>
+                <p><strong><?php echo $self_introduction_name ?></strong> <?php echo $self_description?> </p>
             </div>
         </div>
         <div class="section" id="home--listings">
@@ -49,18 +61,38 @@ get_header(); ?>
                     <div class="col-sm-11">
                         <div class="row justify-content-center">
                             <div class="col-sm-4">
-                                Icon
+                                <?php if( !empty($statistic_1_image) ) : ?>
+                                <img src="<?php echo $statistic_1_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
+                                <?php endif; ?>
                             </div>
                             <div class="col-sm-6">
-                                Suspendisse lobortis efficitur velit, id scelerisque justo luctus at. Nullam at justo accumsan, facilisis purus a, sodales eros. Sed tincidunt commodo ipsum et scelerisque. Pellentesque eget eleifend odio. Aenean nec neque massa. Suspendisse quis lectus orci. Nam finibus neque non volutpat pulvinar. Vivamus quis est vel dui feugiat auctor quis mattis metus.
+                                <?php if( !empty($statistic_1_image) ) : ?>
+                                    <?php echo $statistic_1_description ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-sm-4">
-                                Icon
+                                <?php if( !empty($statistic_2_image) ) : ?>
+                                <img src="<?php echo $statistic_2_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
+                                <?php endif; ?>
                             </div>
                             <div class="col-sm-6">
-                                Morbi gravida sapien quis massa sagittis blandit. Aenean mattis, turpis vitae consectetur placerat, mi quam tincidunt augue, quis egestas augue mi nec diam. Phasellus faucibus tempus massa in faucibus. Cras porta varius odio, et blandit arcu dignissim sed. Sed tristique gravida pharetra. 
+                                <?php if( !empty($statistic_2_image) ) : ?>
+                                    <?php echo $statistic_2_description ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-4">
+                                <?php if( !empty($statistic_3_image) ) : ?>
+                                <img src="<?php echo $statistic_3_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
+                                <?php endif; ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <?php if( !empty($statistic_3_image) ) : ?>
+                                    <?php echo $statistic_3_description ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -71,14 +103,14 @@ get_header(); ?>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
-                        <div class="testimonial">
-                            <p>Praesent fermentum nunc eu justo accumsan, eget ultricies leo luctus. Nullam fringilla.</p>
-                            <p class="text-right">- Someone</p>
-                        </div>
-                        <div class="testimonial">
-                            <p>Quisque gravida cursus euismod. Nunc eu ligula malesuada, mattis justo vitae, maximus.</p>
-                            <p class="text-right">- Someone</p>
-                        </div>
+                        <?php $loop = new WP_Query( array('post_type' => 'testimonies') );?>
+                        <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+                            <div class="testimonial">
+                                <p><?php the_field('client_testimony'); ?></p>
+                                <p class="text-right">- <?php the_field('client_name'); ?></p>
+                            </div>
+                        <?php  endwhile; ?>
+                        
                     </div>
                 </div>
             </div>
