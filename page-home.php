@@ -18,20 +18,30 @@ $statistic_3_description = get_field('statistic_3_description');
 get_header(); ?>
 <div id="hero-slider" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class="carousel-indicators">
-        <li data-target="#hero-slider" data-slide-to="0" class="active"></li>
-        <li data-target="#hero-slider" data-slide-to="1"></li>
-        <li data-target="#hero-slider" data-slide-to="2"></li>
+        
+        <?php $img_loop = new WP_Query( array('post_type' => 'home_images') );?>
+            
+        <?php $counter= -1; while( $img_loop->have_posts() ) : $img_loop->the_post(); $counter++?>
+            <?php if($counter == 0) { ?>
+                <li data-target="#hero-slider" data-slide-to="<?php echo $counter; ?>" class="active" ></li>
+            <?php } else { ?>
+                <li data-target="#hero-slider" data-slide-to="<?php echo $counter; ?>" ></li>
+            <?php } ?>
+        <?php  endwhile; ?>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="slider-slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVd_S8HOVo_v-v2_JaAK_Ajrt1kfAszb84GPounwnXg32ZW0Maqg')"></div>      
-        </div>
-        <div class="carousel-item">
-            <div class="slider-slide" style="background-image: url('https://eieihome.com/articles/wp-content/uploads/2018/04/architecture-building-driveway-186077.jpg')"></div>
-        </div>
-        <div class="carousel-item">
-            <div class="slider-slide" style="background-image: url('https://www.eliteholidayhomes.com.au/wp-content/uploads/2018/08/banner2.jpg')"></div>
-        </div>
+        <?php $img_loop = new WP_Query( array('post_type' => 'home_carousel') );?>
+        <?php $counter= -1; while( $img_loop->have_posts() ) : $img_loop->the_post(); $counter++?>
+            <?php if($counter == 0) { ?>
+                <div class="carousel-item active">
+                    <div class="slider-slide" style="background-image: url('<?php echo the_field('home_gallery_image')?>')"></div>      
+                </div>
+            <?php } else { ?>
+                <div class="carousel-item">
+                    <div class="slider-slide" style="background-image: url('<?php echo the_field('home_gallery_image')?>')"></div>
+                </div>
+            <?php } ?>
+        <?php  endwhile; ?>
     </div>
     <a class="carousel-control-prev" href="#hero-slider" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -46,7 +56,6 @@ get_header(); ?>
     <div class="col-sm-8">
         <div class="section" id="home--about">
             <div class="container">
-                <p> IT SHOULD APPEAR HERE </p>
                 <p><strong><?php echo $self_introduction_name ?></strong> <?php echo $self_description?> </p>
             </div>
         </div>
