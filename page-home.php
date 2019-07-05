@@ -59,42 +59,21 @@ get_header(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-11">
-                        <div class="row justify-content-center">
-                            <div class="col-sm-4">
-                                <?php if( !empty($statistic_1_image) ) : ?>
-                                <img src="<?php echo $statistic_1_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
-                                <?php endif; ?>
+                        <?php $loop = new WP_Query( array('post_type' => 'xh_stats') );?>
+                        <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-4">
+                                    <?php if( !empty(the_field('statistic_image')) ) : ?>
+                                    <img src="<?php echo the_field('statistic_image')['url'] ;?>" alt="<?php echo the_field('statistic_image')['alt']?>">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-sm-6">
+                                    <?php if( !empty(the_field('statistic_description')) ) : ?>
+                                        <?php echo the_field('statistic_description') ?>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <?php if( !empty($statistic_1_image) ) : ?>
-                                    <?php echo $statistic_1_description ?>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-sm-4">
-                                <?php if( !empty($statistic_2_image) ) : ?>
-                                <img src="<?php echo $statistic_2_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
-                                <?php endif; ?>
-                            </div>
-                            <div class="col-sm-6">
-                                <?php if( !empty($statistic_2_image) ) : ?>
-                                    <?php echo $statistic_2_description ?>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-sm-4">
-                                <?php if( !empty($statistic_3_image) ) : ?>
-                                <img src="<?php echo $statistic_3_image['url'] ;?>" alt="<?php echo $statistic_1_image['alt']?>">
-                                <?php endif; ?>
-                            </div>
-                            <div class="col-sm-6">
-                                <?php if( !empty($statistic_3_image) ) : ?>
-                                    <?php echo $statistic_3_description ?>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                        <?php  endwhile; ?>
                     </div>
                 </div>
             </div>
