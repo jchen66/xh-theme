@@ -62,73 +62,86 @@ get_header(); ?>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="mylistings" role="tabpanel" aria-labelledby="my-listings-tab">
                         <div class="row">
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
+                            <?php $estate_loop = new WP_Query( array('post_type' => 'estate') );?>
+                            <?php while( $estate_loop->have_posts() ) : $estate_loop->the_post(); ?>
+                                <?php if(the_field('is_my_listing')) { ?>
+                                    <div class="col-sm-3 col-md-6 col-lg-4">
+                                        <div class="section" id="estate--details">
+                                            <div class="container">
+                                                <div class="listing-preview-item">
+                                                    <div>
+                                                        <img class="img-thumbnail" src="<?php echo the_field('estate_image_thumbnail')?>" alt="">
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <?php echo the_field('estate_price')?> $ 
+                                                    </div>
+                                                    <div class="listing-address">
+                                                        <?php echo the_field('estate_address')?>
+                                                    </div>
+                                                    
+                                                    <div class="listing-description">
+                                                        details<br>
+                                                        details<br>
+                                                        details<br>
+                                                        details<br>
+                                                    </div>
+                                                    <div class=section>
+                                                        <div class="container">
+                                                            <div class="text-center">
+                                                                <a href="/estate.html" class="btn btn-dark--custom">Learn More</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
+                                <?php } ?>
+                            <?php  endwhile; ?>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="myrecommendations" role="tabpanel" aria-labelledby="my-recommendations-tab">
                         <div class="row">
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
+                            <?php $estate_loop = new WP_Query( array('post_type' => 'estate') );?>
+                            <?php while( $estate_loop->have_posts() ) : $estate_loop->the_post(); ?>
+                                <?php if(!the_field('is_my_listing')) { ?>
+                                    <div class="col-sm-3 col-md-6 col-lg-4">
+                                        <div class="section" id="estate--details">
+                                            <div class="container">
+                                                <div class="listing-preview-item">
+                                                    <div>
+                                                        <img class="img-thumbnail" src="<?php echo the_field('estate_image_thumbnail')?>" alt="">
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <?php echo the_field('estate_price')?> $ 
+                                                    </div>
+                                                    <div class="listing-address">
+                                                        <?php echo the_field('estate_address')?>
+                                                    </div>
+                                                    
+                                                    <div class="listing-description">
+                                                        details<br>
+                                                        details<br>
+                                                        details<br>
+                                                        details<br>
+                                                    </div>
+                                                    <div class=section>
+                                                        <div class="container">
+                                                            <div class="text-center">
+                                                                <a href="/estate.html" class="btn btn-dark--custom">Learn More</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-6 col-lg-4">
-                                <div class="section" id="estate--details">
-                                    <div class="container">
-                                        {% include "partials/listingpreviewitem.html" %}
-                                    </div>
-                                </div>
-                            </div>
+                                <?php } ?>
+                            <?php  endwhile; ?>
+
                         </div>
                     </div>
                 </div>
