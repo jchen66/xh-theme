@@ -64,7 +64,7 @@ get_header(); ?>
                         <div class="row">
                             <?php $estate_loop = new WP_Query( array('post_type' => 'estate') );?>
                             <?php while( $estate_loop->have_posts() ) : $estate_loop->the_post(); ?>
-                                <?php if(the_field('is_my_listing')) { ?>
+                                <?php if(get_field('is_my_listing') == 'myListing') { ?>
                                     <div class="col-sm-3 col-md-6 col-lg-4">
                                         <div class="section" id="estate--details">
                                             <div class="container">
@@ -106,7 +106,7 @@ get_header(); ?>
                         <div class="row">
                             <?php $estate_loop = new WP_Query( array('post_type' => 'estate') );?>
                             <?php while( $estate_loop->have_posts() ) : $estate_loop->the_post(); ?>
-                                <?php if(!the_field('is_my_listing')) { ?>
+                                <?php if(get_field('is_my_listing') == 'myRecommendation') { ?>
                                     <div class="col-sm-3 col-md-6 col-lg-4">
                                         <div class="section" id="estate--details">
                                             <div class="container">
