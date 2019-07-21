@@ -18,15 +18,16 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-sm-6">
                         <?php $loop = new WP_Query( array('post_type' => 'contact_informations') );?>
-                        <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+                        <?php if( $loop->have_posts() ) : $loop->the_post(); ?>
                             <h3><?php echo the_field('contact_name') ?></h3>
+
                             <div class="contact--connect">
                                 <div class="mb-3">
                                     <address class="mb-0">
                                         <strong>Email:</strong><br>
                                         <?php echo the_field('email_contact') ?><br>
                                         <strong>Telephone:</strong><br>
-                                        <?php echo "something" ?>
+                                        <?php echo the_field('phone_number') ?>
                                     </address> 
                                 </div>
                                 <div>
@@ -37,7 +38,7 @@ get_header(); ?>
                                     </ul>
                                 </div>
                             </div>
-                        <?php  endwhile; ?>
+                        <?php  endif; ?>
                         
                     </div>
                     <div class="col-sm-6">

@@ -989,10 +989,11 @@ object {
   .social-links {
 	list-style: none;
 	padding-left: 0;
+	margin-left: 0;
   }
   
   .social-links .fab {
-	width: 1.25rem;
+	margin-left: 0;
   }
   
   .contact--connect {
